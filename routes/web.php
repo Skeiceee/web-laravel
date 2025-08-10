@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuestionController;
 use App\Livewire\Settings\Appearance;
@@ -10,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('questions.show');
+
+Route::post('answers/{question}', [AnswerController::class, 'store'])->name('answers.store');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

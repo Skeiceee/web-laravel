@@ -13,7 +13,7 @@
                     </span>
                 </p>
 
-                <livewire:heart :hearteable="$comment" />
+                <livewire:heart :hearteable="$comment" wire:key="comment-heart-{{ $comment->id }}"/>
             </li>
         @endforeach
 

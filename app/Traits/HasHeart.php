@@ -13,6 +13,9 @@ trait HasHeart
 
     public function isHearted(): bool
     {
+        if($this->relationLoaded('hearts')) {
+            return $this->hearts->isNotEmpty();
+        }
         return $this->hearts()->where('user_id', 20)->exists();
     }
 
